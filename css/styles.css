@@ -1,1 +1,44 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.playerOne {
+  background-color: #eeeee4;
+  width: 50%;
+  height: 100vh;
+  position: relative;
+}
+
+.playerTwo {
+  width: 50%;
+  height: 100vh;
+  position: relative;
+}
+
+h1 {
+  z-index: 1;
+}
+
+h2 {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+}
+
+h3 {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+}
+
+.rollAndHold {
+  z-index: 1;
+  position: absolute;
+  top: 70%;
+  left: 45%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+/*# sourceMappingURL=styles.css.map */
