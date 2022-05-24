@@ -1,3 +1,5 @@
+import {createCanvas} from "./three";
+
 $(document).ready(() => {
   console.log('jQuery est prêt à l\'utilisation')
 
@@ -9,14 +11,13 @@ $(document).ready(() => {
     
   };
 
-  let rollDice = $('#rollDice');
+  const rollDice = $('#rollDice');
   function addNumber() {
     setTimeout(() => {
       let number = Number(Math.ceil(Math.random()*6))
-      $(`<div class="number">${number}</div>`).appendTo('.newGame')
     }, 5000);
   };
-  rollDice.click(addNumber).click(playSound);
+  rollDice.click(addNumber).click(playSound).click(createCanvas);
   
 });
 
