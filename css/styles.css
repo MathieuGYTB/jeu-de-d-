@@ -21,7 +21,7 @@ body {
   z-index: 1;
   position: absolute;
   top: 70%;
-  left: 47%;
+  left: 46%;
 }
 
 .player {
@@ -48,9 +48,10 @@ p {
 }
 
 .number {
+  z-index: 1;
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 46%;
 }
 
 h1 {
