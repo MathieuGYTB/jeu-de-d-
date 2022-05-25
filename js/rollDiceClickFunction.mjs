@@ -1,5 +1,5 @@
 import './three.mjs'
-import {createCanvas} from './three.mjs'
+import {animate} from './three.mjs'
 // jquery
 $(document).ready(() => {
   console.log('jQuery est prêt à l\'utilisation')
@@ -24,6 +24,6 @@ $(document).ready(() => {
   };
   
   // to add event on click on rollDice element
-  rollDice.click(addRandomNumber).click(playSound).click(createCanvas);
+  rollDice.click(addRandomNumber).click(playSound).click(animate);
   
 });
