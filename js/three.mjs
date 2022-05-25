@@ -10,8 +10,8 @@ export function createCanvas() {
   const gl = canvas1[0].getContext('webgl');
   //add scene, camera and renderer
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, canvas1.width / canvas1.height, 0.1, 1000);
-  camera.position.z = 100;
+  const camera = new THREE.PerspectiveCamera(75, canvas1[0].width / canvas1[0].height, 0.1, 1000);
+  camera.position.z = 3;
   const renderer = new THREE.WebGLRenderer(
     {
     canvas: canvas1[0],
@@ -21,18 +21,18 @@ export function createCanvas() {
  
 
   // add box object
-  const boxGeometry = new THREE.BoxGeometry(50,50,50);
+  const boxGeometry = new THREE.BoxGeometry(2,2,2);
   const boxMaterial = 
-  [
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('../images/dice1.png'), side: THREE.DoubleSide }),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('../images/dice2.png'), side: THREE.DoubleSide }),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('../images/dice3.png'), side: THREE.DoubleSide }),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('../images/dice4.png'), side: THREE.DoubleSide }),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('../images/dice5.png'), side: THREE.DoubleSide }),
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('../images/dice6.png'), side: THREE.DoubleSide })
-  ];
+    [
+      new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice1.png'), side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice2.png'), side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice3.png'), side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice4.png'), side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice5.png'), side: THREE.DoubleSide }),
+      new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice6.png'), side: THREE.DoubleSide })
+    ];
 
-  const material = new THREE.MeshFaceMaterial( boxMaterial)
+  const material = new THREE.MeshFaceMaterial(boxMaterial)
   const box = new THREE.Mesh(boxGeometry, material);
   scene.add(box);
 
@@ -44,7 +44,9 @@ export function createCanvas() {
   // function to animate the object
   function animate() {
     
-    box.rotation.y += 0.01;
+    box.rotation.y += 0.1;
+    box.rotation.x += 0.1;
+    box.rotation.z += 0.01;
     renderer.setClearColor( 0xffffff, 0 )
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
