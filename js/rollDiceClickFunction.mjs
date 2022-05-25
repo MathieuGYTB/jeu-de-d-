@@ -1,3 +1,5 @@
+import './three.mjs'
+import {createCanvas} from './three.mjs'
 // jquery
 $(document).ready(() => {
   console.log('jQuery est prêt à l\'utilisation')
@@ -17,7 +19,7 @@ $(document).ready(() => {
   function addRandomNumber() {
     setTimeout(() => {
       let number = Number(Math.ceil(Math.random()*6))
-      return number
+      console.log(number)
     }, 5000);
   };
   
