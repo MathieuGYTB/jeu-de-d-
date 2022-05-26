@@ -4,6 +4,10 @@ body {
   position: relative;
 }
 
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 .playerOne {
   background-color: #eeeee4;
   width: 50%;
@@ -47,7 +51,37 @@ p {
   z-index: 1;
 }
 
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate3d(0deg);
+            transform: rotate3d(0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+            transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate3d(0deg);
+            transform: rotate3d(0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 1, 0, 180deg);
+            transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+
 .number {
+  position: absolute;
+  bottom: 0;
+  left: 46%;
+}
+
+#rollDice:focus .number {
+  -webkit-animation: 5s ease-out alternate rotation;
+          animation: 5s ease-out alternate rotation;
   position: absolute;
   bottom: 0;
   left: 46%;
