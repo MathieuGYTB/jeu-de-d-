@@ -1,5 +1,5 @@
 import './three.mjs'
-import {box} from './three.mjs'
+import {box, animate} from './three.mjs'
 // jquery
 $(document).ready(() => {
   console.log('jQuery est prêt à l\'utilisation')
@@ -19,9 +19,11 @@ var number;
   
   // fonction to add random number between 1 and 6 after 5 sec
   function AddRandomNumber() {
-       number = Number(Math.floor(Math.random()*6) + 1)
+      number = Number(Math.floor(Math.random()*6) + 1)
       console.log(number)
   };
+  
+  
   //function to move dice
   function MoveDice() {
     AddRandomNumber();
@@ -37,21 +39,21 @@ var number;
     } else if (number === 2) {
       //add temporary count
       // move dice on face 2
-     setTimeout(()=> {
-      box.rotation.y += 179;
-     }, 4000);
-     setTimeout(() => {
-      box.rotation.y -= 179
-    }, 6000);
+      setTimeout(()=> {
+        box.rotation.y += 179;
+      }, 4000);
+      setTimeout(() => {
+        box.rotation.y -= 179
+      }, 6000);
     } else if (number === 3) {
       //add temporary count
       // move dice on face 3
-     setTimeout(() => {
-       box.rotation.x += 90;
-     }, 4000);
-     setTimeout(() => {
-      box.rotation.x -= 90
-    }, 6000); 
+      setTimeout(() => {
+        box.rotation.x += 90;
+      }, 4000);
+      setTimeout(() => {
+        box.rotation.x -= 90
+      }, 6000); 
     } else if (number === 4) {
       //add temporary count
       //move dice on face 4
@@ -68,12 +70,12 @@ var number;
     } else if (number === 6) {
       //add temprary count
       //move dice on face 6
-     setTimeout(() => {
-       box.rotation.y += 90;
-     }, 4000);
-     setTimeout(() => {
-      box.rotation.y -= 90
-    }, 6000);
+      setTimeout(() => {
+        box.rotation.y += 90;
+      }, 4000);
+      setTimeout(() => {
+        box.rotation.y -= 90
+      }, 6000);
     } else {
       console.log('error')
     }

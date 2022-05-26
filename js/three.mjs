@@ -47,3 +47,11 @@ export function NoAnimate() {
 };
 NoAnimate();
 
+export function animate() {
+  box.rotation.x += 0.1;
+  box.rotation.y += 0.1;
+  box.rotation.z += 0.1;
+  renderer.setClearColor(0xffffff, 0);
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate)
+};
