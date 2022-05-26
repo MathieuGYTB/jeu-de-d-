@@ -1,5 +1,5 @@
 import './three.mjs'
-import {animate} from './three.mjs'
+import {animate, stopAnime} from './three.mjs'
 // jquery
 $(document).ready(() => {
   console.log('jQuery est prêt à l\'utilisation')
@@ -22,8 +22,8 @@ $(document).ready(() => {
       console.log(number)
     }, 5000);
   };
-  
+
   // to add event on click on rollDice element
-  rollDice.click(addRandomNumber).click(playSound).click(animate);
+  rollDice.click(addRandomNumber).click(playSound).click(animate).click(stopAnime);
   
-});
+  });

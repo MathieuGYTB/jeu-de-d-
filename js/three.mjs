@@ -15,7 +15,7 @@ import * as THREE from "https://unpkg.com/three@0.140.2/build/three.module.js";
   export const renderer = new THREE.WebGLRenderer(
     {
     canvas: canvas1[0],
-    alpha: true  
+    alpha: true
     }
   );
  
@@ -37,18 +37,29 @@ import * as THREE from "https://unpkg.com/three@0.140.2/build/three.module.js";
   box.position.set(0,0,0);
   scene.add(box);
 
-  // add renderer 
-  renderer.setClearColor( 0xffffff, 0 );
-  renderer.render(scene, camera);
 
+  // add function to no animate dice
+  export function NoAnimate() {
+    box.position.set(0,0,0);
+    renderer.setClearColor(0xffffff, 0);
+    renderer.render(scene, camera);
+    requestAnimationFrame(NoAnimate)
+  };
+ NoAnimate();
 
   // function to animate the object
-  export function animate() {
+  export const animate = function() {
     
-    box.rotation.y += 0.1;
-    box.rotation.x += 0.1;
-    box.rotation.z += 0.01;
-    renderer.setClearColor( 0xffffff, 0 );
-    renderer.render(scene, camera);
-    requestAnimationFrame(animate);
+      box.rotation.y += 0.1;
+      box.rotation.x += 0.1;
+      box.rotation.z += 0.01;
+      renderer.setClearColor( 0xffffff, 0 );
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    
   };
+  
+  // function to stop animation
+  export function stopAnime(){
+    setTimeout(NoAnimate, 5000);
+  }
