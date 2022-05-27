@@ -11,7 +11,7 @@ export const gl = canvas1[0].getContext('webgl');
   //add scene, camera and renderer
 export const scene = new THREE.Scene();
 export const camera = new THREE.PerspectiveCamera(75, canvas1[0].width / canvas1[0].height, 0.1, 1000);
-camera.position.z = 3;
+camera.position.z= 3;
 export const renderer = new THREE.WebGLRenderer(
   {
   canvas: canvas1[0],
