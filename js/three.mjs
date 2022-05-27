@@ -18,11 +18,11 @@ export const renderer = new THREE.WebGLRenderer(
   alpha: true
   }
 );
- 
+
 
   // add box object
 export const boxGeometry = new THREE.BoxGeometry(2,2,2);
- export const boxMaterial = 
+export const boxMaterial = 
   [
     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice1.png'), side: THREE.DoubleSide }),
     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice6.png'), side: THREE.DoubleSide }),
@@ -37,21 +37,43 @@ export const box = new THREE.Mesh(boxGeometry, material);
 box.position.set(0,0,0);
 scene.add(box);
 
+export const boxTwo = new THREE.Mesh(boxGeometry, material);
+boxTwo.position.set(0,0,0);
+
 
   // add function to no animate dice
 export function NoAnimate() {
-  box.position.set(0,0,0);
+  boxTwo.position.set(0,0,0);
   renderer.setClearColor(0xffffff, 0);
   renderer.render(scene, camera);
   requestAnimationFrame(NoAnimate)
 };
 NoAnimate();
 
-export function animate() {
+export function DeleteBox() {
+  scene.remove(box);
+};
+
+export function AddBox() {
+  scene.add(box);
+}
+
+export function DeleteBoxTwo() {
+  scene.remove(boxTwo);
+};
+
+export function AddBoxTwo() {
+  scene.add(boxTwo);
+};
+
+export function Animate() {
+  
+  setTimeout(AddBoxTwo, 4000);
+  setTimeout(DeleteBox, 4000);
   box.rotation.x += 0.1;
   box.rotation.y += 0.1;
   box.rotation.z += 0.1;
   renderer.setClearColor(0xffffff, 0);
   renderer.render(scene, camera);
-  requestAnimationFrame(animate)
+  requestAnimationFrame(Animate)
 };

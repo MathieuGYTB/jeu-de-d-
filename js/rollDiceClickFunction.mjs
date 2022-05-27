@@ -1,5 +1,5 @@
 import './three.mjs'
-import {box, animate} from './three.mjs'
+import {Animate, boxTwo, AddBox, DeleteBox, AddBoxTwo, DeleteBoxTwo} from './three.mjs'
 // jquery
 $(document).ready(() => {
   console.log('jQuery est prêt à l\'utilisation')
@@ -26,55 +26,61 @@ var number;
   
   //function to move dice
   function MoveDice() {
+    DeleteBoxTwo();
+    AddBox();
+    setTimeout(AddBoxTwo, 4000);
+    setTimeout(DeleteBox, 4000); 
+    playSound();
+    Animate();
     AddRandomNumber();
     if (number === 1) {
       //player 2
       // move dice on face 1
       setTimeout(() => {
-        box.rotation.y -= 90;
+        boxTwo.rotation.y -= 90;
       },4000);
       setTimeout(() => {
-        box.rotation.y += 90
+        boxTwo.rotation.y += 90
       }, 6000);
     } else if (number === 2) {
       //add temporary count
       // move dice on face 2
       setTimeout(()=> {
-        box.rotation.y += 179;
+        boxTwo.rotation.y += 179;
       }, 4000);
       setTimeout(() => {
-        box.rotation.y -= 179
+        boxTwo.rotation.y -= 179
       }, 6000);
     } else if (number === 3) {
       //add temporary count
       // move dice on face 3
       setTimeout(() => {
-        box.rotation.x += 90;
+        boxTwo.rotation.x += 90;
       }, 4000);
       setTimeout(() => {
-        box.rotation.x -= 90
+        boxTwo.rotation.x -= 90
       }, 6000); 
     } else if (number === 4) {
       //add temporary count
       //move dice on face 4
       setTimeout(() => {
-        box.rotation.x -= 90;
+        boxTwo.rotation.x -= 90;
       }, 4000);
       setTimeout(() => {
-        box.rotation.x += 90
+        boxTwo.rotation.x += 90
       }, 6000);
     } else if (number === 5) {
       //add temporary count
       //move dice on face 5
-      box.rotation.x == 0;
+      boxTwo.rotation.x == 0;
     } else if (number === 6) {
       //add temprary count
       //move dice on face 6
       setTimeout(() => {
-        box.rotation.y += 90;
+        boxTwo.rotation.y += 90;
       }, 4000);
       setTimeout(() => {
-        box.rotation.y -= 90
+        boxTwo.rotation.y -= 90
       }, 6000);
     } else {
       console.log('error')
@@ -82,6 +88,6 @@ var number;
   };
 
   // to add event on click on rollDice element
-  rollDice.click(playSound).click(MoveDice);
+  rollDice.click(MoveDice);
   
   });
