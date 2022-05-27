@@ -67,9 +67,6 @@ export function AddBoxTwo() {
 };
 
 export function Animate() {
-  
-  setTimeout(AddBoxTwo, 4000);
-  setTimeout(DeleteBox, 4000);
   box.rotation.x += 0.1;
   box.rotation.y += 0.1;
   box.rotation.z += 0.1;
