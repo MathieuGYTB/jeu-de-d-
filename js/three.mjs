@@ -1,8 +1,5 @@
 import * as THREE from "https://unpkg.com/three@0.140.2/build/three.module.js";
 
-//function to create canvas whith scene, object and animate
-
-
   //get element canvas
 export const canvas1 = document.getElementsByTagName('canvas');
 
@@ -19,7 +16,6 @@ export const renderer = new THREE.WebGLRenderer(
   }
 );
 
-
   // add box object
 export const boxGeometry = new THREE.BoxGeometry(2,2,2);
 export const boxMaterial = 
@@ -32,7 +28,6 @@ export const boxMaterial =
     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice2.png'), side: THREE.DoubleSide })
   ];
 
-//export const material = new THREE.MeshFaceMaterial(boxMaterial);
 export const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.set(0,0,0);
 scene.add(box);
@@ -50,21 +45,13 @@ export function NoAnimate() {
 };
 NoAnimate();
 
-export function DeleteBox() {
-  scene.remove(box);
+export function DeleteObject(object) {
+  scene.remove(object);
 };
 
-export function AddBox() {
-  scene.add(box);
+export function AddObject(object) {
+  scene.add(object);
 }
-
-export function DeleteBoxTwo() {
-  scene.remove(boxTwo);
-};
-
-export function AddBoxTwo() {
-  scene.add(boxTwo);
-};
 
 export function Animate() {
   box.rotation.x += 0.1;
