@@ -9,7 +9,7 @@ body {
 }
 
 .playerOne {
-  background-color: #d6d6cd;
+  background-color: #ebecec;
   width: 50%;
   height: 90vh;
   position: relative;
@@ -26,7 +26,11 @@ body {
   z-index: 1;
   position: absolute;
   top: 65%;
-  left: 50%;
+  left: 52%;
+}
+
+.bi {
+  color: red;
 }
 
 @media screen and (max-width: 520px) {
@@ -61,9 +65,15 @@ body {
   height: 100px;
 }
 
-@media screen and (max-width: 280px) {
+@media screen and (max-width: 471px) {
   h2 {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h2 {
+    font-size: 12px;
   }
 }
 
@@ -111,6 +121,7 @@ body {
   left: 0;
   text-align: center;
   vertical-align: middle;
+  color: white;
 }
 
 p {
@@ -125,9 +136,22 @@ p {
 }
 
 .number {
-  position: absolute;
   bottom: 45%;
   left: 53%;
+}
+
+@media screen and (max-width: 472px) {
+  .number {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-height: 320px) {
+  .number {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 h1 {
@@ -135,7 +159,15 @@ h1 {
   left: 52%;
 }
 
+@media screen and (max-width: 490px) {
+  h1 {
+    font-size: 16px;
+  }
+}
+
 .totalScore {
   left: 48%;
+  color: red;
+  font-size: 50px;
 }
 /*# sourceMappingURL=styles.css.map */
