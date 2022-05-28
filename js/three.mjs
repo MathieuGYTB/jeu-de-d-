@@ -32,12 +32,12 @@ export const boxMaterial =
     new THREE.MeshBasicMaterial({map: new THREE.TextureLoader( ).load('../images/dice2.png'), side: THREE.DoubleSide })
   ];
 
-export const material = new THREE.MeshFaceMaterial(boxMaterial);
-export const box = new THREE.Mesh(boxGeometry, material);
+//export const material = new THREE.MeshFaceMaterial(boxMaterial);
+export const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.set(0,0,0);
 scene.add(box);
 
-export const boxTwo = new THREE.Mesh(boxGeometry, material);
+export const boxTwo = new THREE.Mesh(boxGeometry,boxMaterial);
 boxTwo.position.set(0,0,0);
 
 

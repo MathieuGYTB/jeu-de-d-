@@ -17,22 +17,23 @@ $(document).ready(() => {
 
   var number = 0;
   
-  // fonction to add random number between 1 and 6 after 5 sec
+  // fonction to add random number between 1 and 6
   function AddRandomNumber() {
       number = Number(Math.floor(Math.random()*6) + 1)
       console.log(number)
     };
     
-  var currentScore = $('.currentScore');
+  let currentScore = $('.currentScore');
 
+  // function to write 0 in current score when the random number is 1
   function Zero() {
     currentScore.text(0);
   };
-
+  // function to write the add random number other than 1 in current score
   function otherNumber() {
     currentScore.text(number);
   }
-  //function to move dice
+  // game function 
   function MoveDice() {
     DeleteBoxTwo();
     AddBox();
