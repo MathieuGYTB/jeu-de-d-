@@ -29,21 +29,80 @@ body {
   left: 50%;
 }
 
-.player {
+@media screen and (max-width: 520px) {
+  h4 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  h4 {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  h4 {
+    font-size: 6px;
+  }
+}
+
+.player1 {
   position: absolute;
   top: 25%;
   left: 40%;
   height: 100px;
 }
 
-.current {
+.player2 {
+  position: absolute;
+  top: 25%;
+  right: 40%;
+  height: 100px;
+}
+
+@media screen and (max-width: 280px) {
+  h2 {
+    font-size: 16px;
+  }
+}
+
+.current1 {
   position: absolute;
   top: 70%;
-  left: 46%;
+  left: 40%;
   height: 100px;
-  width: 120px;
+  width: 20%;
   background-color: red;
   text-align: center;
+}
+
+.current2 {
+  position: absolute;
+  top: 70%;
+  right: 40%;
+  height: 100px;
+  width: 20%;
+  background-color: red;
+  text-align: center;
+}
+
+@media screen and (max-width: 910px) {
+  h3 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h3 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  h3 {
+    font-size: 8px;
+  }
 }
 
 .currentScore {
@@ -61,7 +120,7 @@ p {
 
 .newGame {
   width: 90%;
-  height: 100%;
+  height: 90vh;
   z-index: 1;
 }
 
