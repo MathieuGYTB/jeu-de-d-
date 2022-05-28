@@ -1,10 +1,11 @@
 import './three.mjs'
 import {Animate, boxTwo, box, DeleteObject, AddObject} from './three.mjs'
+
 // jquery
 $(document).ready(() => {
   console.log('jQuery est prêt à l\'utilisation')
 
-  //const to add #rollDice element
+  // add variable
   const rollDice = $('#rollDice');
   const redPointOne = $('#redPointOne');
   const redPointTwo = $('#redPointTwo');
@@ -16,7 +17,7 @@ $(document).ready(() => {
   let number = 0;
   
   // function to play dice sound
-  function playSound(){
+  function playSound() {
     const audio = new Audio();
     audio.src = "audio/diceSound.wav";
     audio.type = "audio/wav";
@@ -30,7 +31,6 @@ $(document).ready(() => {
     };
     
   // function to write 0 in current score when the random number is 1
-  
   function Zero(currentScore) {
     currentScore.text(0);
   };
@@ -49,24 +49,7 @@ $(document).ready(() => {
     playSound();
     Animate();
     AddRandomNumber();
-    if (number === 1) {
-      //player 2
-      setTimeout(() => {
-        playerText1.css('opacity', '0.5');
-        playerText2.css('opacity', '1');
-        redPointOne.hide();
-        redPointTwo.show();
-      }, 4000);
-      // current score zero
-      setTimeout(Zero, 4000, currentScore1);
-      // move dice on face 1
-      setTimeout(() => {
-        boxTwo.rotation.y -= 90;
-      }, 4000);
-      setTimeout(() => {
-        boxTwo.rotation.y += 90
-      }, 6000);
-    } else if (number === 2) {
+    if (number === 2) {
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore1);
       // move dice on face 2
@@ -111,12 +94,27 @@ $(document).ready(() => {
       setTimeout(() => {
         boxTwo.rotation.y -= 90
       }, 6000);
-    } else {
-      console.log('error')
+    } else { 
+        //player 2
+        setTimeout(() => {
+          playerText1.css('opacity', '0.5');
+          playerText2.css('opacity', '1');
+          redPointOne.hide();
+          redPointTwo.show();
+        }, 4000);
+        // current score zero
+        setTimeout(Zero, 4000, currentScore1);
+        // move dice on face 1
+        setTimeout(() => {
+          boxTwo.rotation.y -= 90;
+        }, 4000);
+        setTimeout(() => {
+          boxTwo.rotation.y += 90
+        }, 6000); 
     };
     
   };
-
+  
   // to add event on click on rollDice element
   rollDice.click(MoveDice);
   

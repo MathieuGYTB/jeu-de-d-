@@ -5,6 +5,7 @@ export const canvas1 = document.getElementsByTagName('canvas');
 
   //add context 
 export const gl = canvas1[0].getContext('webgl');
+
   //add scene, camera and renderer
 export const scene = new THREE.Scene();
 export const camera = new THREE.PerspectiveCamera(75, canvas1[0].width / canvas1[0].height, 0.1, 1000);
@@ -32,9 +33,17 @@ export const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.set(0,0,0);
 scene.add(box);
 
+// add a seconde box 
 export const boxTwo = new THREE.Mesh(boxGeometry,boxMaterial);
 boxTwo.position.set(0,0,0);
 
+// function to add and delete object
+export function DeleteObject(object) {
+  scene.remove(object);
+};
+export function AddObject(object) {
+  scene.add(object);
+};
 
   // add function to no animate dice
 export function NoAnimate() {
@@ -45,14 +54,7 @@ export function NoAnimate() {
 };
 NoAnimate();
 
-export function DeleteObject(object) {
-  scene.remove(object);
-};
-
-export function AddObject(object) {
-  scene.add(object);
-}
-
+// function to animate Dice
 export function Animate() {
   box.rotation.x += 0.1;
   box.rotation.y += 0.1;
