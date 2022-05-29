@@ -16,7 +16,30 @@ $(document).ready(() => {
   const currentScore2 = $('#currentScore2');
   var currentScoreOne = Number($('#currentScore1').text());
   var currentScoreTwo = Number($('#currentScore2').text());
+  const totalScore1 = $('#totalScore1');
+  const totalScore2 = $('#totalScore2');
+  const newGame = $('h1');
+  const p = $('p');
   let number = 0;
+
+  // function to strat a new game
+  function NewGame() {
+    p.text(0);
+    playerText1.css('opacity', '1');
+    playerText2.css('opacity', '0.5');
+    redPointOne.show();
+    redPointTwo.hide();
+  };
+
+  // function to hold the Score
+  function Hold() {
+    totalScore1.text(currentScoreOne + number);
+    Zero(currentScore1);
+    playerText1.css('opacity', '0.5');
+    playerText2.css('opacity', '1');
+    redPointOne.hide();
+    redPointTwo.show();
+  };
 
   // function to play dice sound
   function playSound() {
@@ -37,8 +60,8 @@ $(document).ready(() => {
     currentScore.text(0);
   };
   // function to write the add random number other than 1 in current score
-  function otherNumber(currentScore) {
-    currentScore.text(number + currentScoreOne);
+  function otherNumber(currentScore, cSO) {
+    currentScore.text(number + cSO);
   };
 
   // game function 
@@ -120,7 +143,8 @@ $(document).ready(() => {
   };
   
   // to add event on click on rollDice element
+  newGame.click(NewGame);
   rollDice.click(MoveDice);
-  
+  hold.click(Hold);
   
   });
