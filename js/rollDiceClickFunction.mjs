@@ -21,6 +21,10 @@ $(document).ready(() => {
   const newGame = $('h1');
   const p = $('p');
   let number = 0;
+  let total1 = Number($('#totalScore1').text());
+  let total2 = Number($('#totalScore2').text());
+  const player1 = $('#player1');
+  const player2 = $('#player2');
 
   // function to strat a new game
   function NewGame() {
@@ -30,10 +34,17 @@ $(document).ready(() => {
     redPointOne.show();
     redPointTwo.hide();
   };
-
+  // function to the winner
+  function winner(total) {
+    if (total > 100) {
+      total == 100;
+      player1.append('<p>Congratulation !</p>').css("color", "orange");
+    };
+  };
   // function to hold the Score
   function Hold() {
     totalScore1.text(currentScoreOne + number);
+    winner(totalScore1);
     Zero(currentScore1);
     playerText1.css('opacity', '0.5');
     playerText2.css('opacity', '1');
@@ -78,7 +89,7 @@ $(document).ready(() => {
     AddRandomNumber();
     if (number === 2) {
       //add temporary count
-      setTimeout(otherNumber, 4000, currentScore1);
+      setTimeout(otherNumber, 4000, currentScore1, currentScoreOne);
       // move dice on face 2
       setTimeout(()=> {
         boxTwo.rotation.y += 179;
@@ -88,7 +99,7 @@ $(document).ready(() => {
       }, 6000);
     } else if (number === 3) {
       //add temporary count
-      setTimeout(otherNumber, 4000, currentScore1);
+      setTimeout(otherNumber, 4000, currentScore1, currentScoreOne);
       // move dice on face 3
       setTimeout(() => {
         boxTwo.rotation.x += 90;
@@ -98,7 +109,7 @@ $(document).ready(() => {
       }, 6000); 
     } else if (number === 4) {
       //add temporary count
-      setTimeout(otherNumber, 4000, currentScore1);
+      setTimeout(otherNumber, 4000, currentScore1, currentScoreOne);
       //move dice on face 4
       setTimeout(() => {
         boxTwo.rotation.x -= 90;
@@ -108,12 +119,12 @@ $(document).ready(() => {
       }, 6000);
     } else if (number === 5) {
       //add temporary count
-      setTimeout(otherNumber, 4000, currentScore1);
+      setTimeout(otherNumber, 4000, currentScore1, currentScoreOne);
       //move dice on face 5
       boxTwo.rotation.x == 0;
     } else if (number === 6) {
       //add temprary count
-      setTimeout(otherNumber, 4000, currentScore1);
+      setTimeout(otherNumber, 4000, currentScore1, currentScoreOne);
       //move dice on face 6
       setTimeout(() => {
         boxTwo.rotation.y += 90;
@@ -146,5 +157,6 @@ $(document).ready(() => {
   newGame.click(NewGame);
   rollDice.click(MoveDice);
   hold.click(Hold);
+  
   
   });
