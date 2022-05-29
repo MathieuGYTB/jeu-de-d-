@@ -33,18 +33,19 @@ export const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.set(0,0,0);
 scene.add(box);
 
-export var request;
-  // add function to no animate dice
-export function NoAnimate() {
-  box.position.set(0,0,0);
-  renderer.setClearColor(0xffffff, 0);
-  renderer.render(scene, camera);
-  request = requestAnimationFrame(NoAnimate)
+export const boxTwo = new THREE.Mesh(boxGeometry, boxMaterial);
+boxTwo.position.set(0,0,0);
+scene.add(boxTwo);
+
+export function render() {
+boxTwo.position.set(0,0,0);
+renderer.setClearColor(0xffffff, 0);
+renderer.render(scene,camera);
+requestAnimationFrame(render);
 };
 
-NoAnimate();
-
-export var requestAnimation;
+render();
+export var request;
 // function to animate Dice
 export function Animate() {
   box.rotation.x += 0.1;
@@ -52,10 +53,17 @@ export function Animate() {
   box.rotation.z += 0.1;
   renderer.setClearColor(0xffffff, 0);
   renderer.render(scene, camera);
-  requestAnimation = requestAnimationFrame(Animate)
+  request = requestAnimationFrame(Animate);
 };
 
+export function AddObject(obj) {
+  scene.add(obj);
+};
+
+export function DeleteObject(obj) {
+  scene.remove(obj);
+};
 // function to stop animation
-export function stopAnimate(req) {
-  cancelAnimationFrame(req);
+export function stopAnimate() {
+  cancelAnimationFrame(request);
 };
