@@ -1,5 +1,5 @@
 import './three.mjs'
-import {Animate, boxTwo, box, DeleteObject, AddObject} from './three.mjs'
+import {Animate, requestAnimation, stopAnimate, request, box, NoAnimate} from './three.mjs'
 
 // jquery
 $(document).ready(() => {
@@ -15,7 +15,6 @@ $(document).ready(() => {
   const currentScore1 = $('#currentScore1');
   const currentScore2 = $('#currentScore2');
   let number = 0;
-  
   // function to play dice sound
   function playSound() {
     const audio = new Audio();
@@ -42,57 +41,56 @@ $(document).ready(() => {
 
   // game function 
   function MoveDice() {
-    DeleteObject(boxTwo);
-    AddObject(box);
-    setTimeout(AddObject, 4000, boxTwo);
-    setTimeout(DeleteObject, 4000, box); 
     playSound();
+    stopAnimate(request);
+    setTimeout(NoAnimate, 4000);
     Animate();
+    setTimeout(stopAnimate, 4000, requestAnimation);
     AddRandomNumber();
     if (number === 2) {
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore1);
       // move dice on face 2
       setTimeout(()=> {
-        boxTwo.rotation.y += 179;
+        box.rotation.y += 179;
       }, 4000);
       setTimeout(() => {
-        boxTwo.rotation.y -= 179
+        box.rotation.y -= 179
       }, 6000);
     } else if (number === 3) {
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore1);
       // move dice on face 3
       setTimeout(() => {
-        boxTwo.rotation.x += 90;
+        box.rotation.x += 90;
       }, 4000);
       setTimeout(() => {
-        boxTwo.rotation.x -= 90
+        box.rotation.x -= 90
       }, 6000); 
     } else if (number === 4) {
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore1);
       //move dice on face 4
       setTimeout(() => {
-        boxTwo.rotation.x -= 90;
+        box.rotation.x -= 90;
       }, 4000);
       setTimeout(() => {
-        boxTwo.rotation.x += 90
+        box.rotation.x += 90
       }, 6000);
     } else if (number === 5) {
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore1);
       //move dice on face 5
-      boxTwo.rotation.x == 0;
+      box.rotation.x == 0;
     } else if (number === 6) {
       //add temprary count
       setTimeout(otherNumber, 4000, currentScore1);
       //move dice on face 6
       setTimeout(() => {
-        boxTwo.rotation.y += 90;
+        box.rotation.y += 90;
       }, 4000);
       setTimeout(() => {
-        boxTwo.rotation.y -= 90
+        box.rotation.y -= 90
       }, 6000);
     } else { 
         //player 2
@@ -106,10 +104,10 @@ $(document).ready(() => {
         setTimeout(Zero, 4000, currentScore1);
         // move dice on face 1
         setTimeout(() => {
-          boxTwo.rotation.y -= 90;
+          box.rotation.y -= 90;
         }, 4000);
         setTimeout(() => {
-          boxTwo.rotation.y += 90
+          box.rotation.y += 90
         }, 6000); 
     };
     
