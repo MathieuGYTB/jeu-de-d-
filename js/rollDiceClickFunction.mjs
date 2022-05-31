@@ -268,7 +268,6 @@ $(document).ready(() => {
       Player_2();
     };
   };
-
   
   // to add event on click on rollDice and new game element
   newGame.click(NewGame);

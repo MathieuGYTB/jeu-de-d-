@@ -69,15 +69,34 @@ body {
   height: 100px;
 }
 
-@media screen and (max-width: 471px) {
+@media screen and (max-width: 628px) {
   h2 {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 420px) {
   h2 {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 388px) {
+  h2 {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  h2 {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 323px) {
+  h2 {
+    font-size: 8px;
+    orientation: landscape;
   }
 }
 
