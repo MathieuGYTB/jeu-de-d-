@@ -165,7 +165,7 @@ $(document).ready(() => {
   };
 
   // function to change player
-  function ChangePlayer(boolean, currentScore0) {
+  function ChangePlayer(boolean) {
     player = boolean;
     if (player == false) {
       setTimeout(() => {
@@ -177,7 +177,7 @@ $(document).ready(() => {
         sectionP2.css('background-color', '#ebecec');
       }, 4000);
       // current score zero
-      setTimeout(Zero, 4000, currentScore0);
+      setTimeout(Zero, 4000, currentScore2);
       // move dice on face 1
       setTimeout(() => {
         boxTwo.rotation.y -= 90;
@@ -195,7 +195,7 @@ $(document).ready(() => {
         sectionP1.css('background-color', '#ebecec');
       }, 4000);
       // current score zero
-      setTimeout(Zero, 4000, currentScore0);
+      setTimeout(Zero, 4000, currentScore1);
       // move dice on face 1
       setTimeout(() => {
         boxTwo.rotation.y -= 90;
@@ -211,7 +211,7 @@ $(document).ready(() => {
     Player(currentScore2, currentScoreTwo);
     if (number == 1) {
     Zero();
-    ChangePlayer(true, currentScore1);
+    ChangePlayer(true);
     };
   };
   
