@@ -28,10 +28,12 @@ $(document).ready(() => {
   let player = true;
   const clickHold = hold.click(Hold);
   const myModal = $('.modal');
-  const button = $('button');
+  const button = $('.yes');
   const modalTitle = $('.modal-title');
   const player_text_1 = $('#playerText1').text();
   const player_text_2 = $('#playerText2').text();
+  const body = $('body');
+  const restart = NewGame();
 
   // fonction to add random number between 1 and 6
   function AddRandomNumber() {
@@ -55,6 +57,7 @@ $(document).ready(() => {
     total2 = 0; 
     number = 0;
   };
+
   // function to the winner
   function winner(total, totalScore0, players) {
     if (total >= 100) {
