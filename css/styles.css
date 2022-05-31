@@ -236,4 +236,9 @@ h1 {
   top: 50px;
   left: 100px;
 }
+
+.help + .rules {
+  position: absolute;
+  z-index: 2;
+}
 /*# sourceMappingURL=styles.css.map */
