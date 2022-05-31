@@ -19,6 +19,23 @@
 
   <body class="position-relative">
 
+    <!--modal-->
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+          </div>
+          <div class="modal-body">
+            <p>Do you want to play a new game ? </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!--New game-->
     <div id="newGame" class="d-flex position-absolute justify-content-evenly">
       <h1 class="position-absolute translate-middle-x"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
@@ -49,11 +66,11 @@
             <h2 id="playerText1">Player One</h2>
             <div id="redPointOne"></div>
           </div>
-          <p id="totalScore1">0</p>
+          <p class="p" id="totalScore1">0</p>
         </div>
         <div id="current1" class="translate-middle-x">
           <h3>current</h3>
-          <p id="currentScore1">0</p>
+          <p class="p" id="currentScore1">0</p>
         </div>
       </section>
       <section id="playerTwo">
@@ -62,11 +79,11 @@
             <h2 id="playerText2">Player two</h2>
             <div id="redPointTwo"></div>
           </div>
-          <p id="totalScore2">0</p>
+          <p class="p" class="p" id="totalScore2">0</p>
         </div>
         <div id="current2">
           <h3>current</h3>
-          <p id="currentScore2">0</p>
+          <p class="p" id="currentScore2">0</p>
         </div>
       </section>
     </div>

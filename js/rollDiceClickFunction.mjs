@@ -14,22 +14,25 @@ $(document).ready(() => {
   const hold = $('#hold');
   const currentScore1 = $('#currentScore1');
   const currentScore2 = $('#currentScore2');
-  var currentScoreOne = Number($('#currentScore1').text());
-  var currentScoreTwo = Number($('#currentScore2').text());
+  var currentScoreOne = Number(currentScore1.text());
+  var currentScoreTwo = Number(currentScore2.text());
   const totalScore1 = $('#totalScore1');
   const totalScore2 = $('#totalScore2');
   const newGame = $('h1');
-  const p = $('p');
+  const p = $('.p');
   let number = 0;
-  var total1 = Number($('#totalScore1').text());
-  var total2 = Number($('#totalScore2').text());
-  const player1 = $('#player1');
-  const player2 = $('#player2');
+  var total1 = Number(totalScore1.text());
+  var total2 = Number(totalScore2.text());
   const sectionP1 = $('#playerOne');
   const sectionP2 = $('#playerTwo');
   let player = true;
-  let clickHold = hold.click(Hold);
-  
+  const clickHold = hold.click(Hold);
+  const myModal = $('.modal');
+  const button = $('button');
+  const modalTitle = $('.modal-title');
+  const player_text_1 = $('#playerText1').text();
+  const player_text_2 = $('#playerText2').text();
+
   // fonction to add random number between 1 and 6
   function AddRandomNumber() {
       number = Number(Math.floor(Math.random()*6) + 1)
@@ -53,10 +56,13 @@ $(document).ready(() => {
     number = 0;
   };
   // function to the winner
-  function winner(total, player0) {
-    if (total > 100) {
+  function winner(total, totalScore0, players) {
+    if (total >= 100) {
       total == 100;
-      player0.append('<p>Congratulation !</p>').css("color", "orange");
+      totalScore0.text(100);
+      modalTitle.text(`WINNER ${players} ! CONGRATULATION !`)
+      myModal.modal('show');
+      button.click(NewGame);
     };
   };
   // function to hold the Score
@@ -64,8 +70,8 @@ $(document).ready(() => {
     if (player == true) {
       currentScoreOne = currentScoreOne + number;
       totalScore1.text(currentScoreOne + total1);
-      console.log(total1);
-      winner(totalScore1, player1);
+      total1 = currentScoreOne + total1;
+      winner(total1, totalScore1, player_text_1);
       Zero();
       number = 0;
       playerText1.css('opacity', '0.5');
@@ -78,7 +84,8 @@ $(document).ready(() => {
     } else if (player == false) {
       currentScoreTwo = currentScoreTwo + number;
       totalScore2.text(currentScoreTwo + total2);
-      winner(totalScore2, player2);
+      total2 = currentScoreTwo + total2;
+      winner(total2, totalScore2, player_text_2);
       Zero();
       number = 0;
       playerText2.css('opacity', '0.5');
@@ -117,8 +124,10 @@ $(document).ready(() => {
 
   function Player(currentScore0, currentScoreZero) {
     if (number === 2) {
-      //add temporary count
+
+      //add current score
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
+
       // move dice on face 2
       setTimeout(()=> {
         boxTwo.rotation.y += 179;
@@ -126,19 +135,25 @@ $(document).ready(() => {
       setTimeout(() => {
         boxTwo.rotation.y -= 179
       }, 6000);
+
     } else if (number === 3) {
+
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
       // move dice on face 3
+
       setTimeout(() => {
         boxTwo.rotation.x += 90;
       }, 4000);
       setTimeout(() => {
         boxTwo.rotation.x -= 90
       }, 6000); 
+
     } else if (number === 4) {
+
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
+
       //move dice on face 4
       setTimeout(() => {
         boxTwo.rotation.x -= 90;
@@ -146,14 +161,20 @@ $(document).ready(() => {
       setTimeout(() => {
         boxTwo.rotation.x += 90
       }, 6000);
+
     } else if (number === 5) {
+
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
+
       //move dice on face 5
       boxTwo.rotation.x == 0;
+
     } else if (number === 6) {
+
       //add temprary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
+
       //move dice on face 6
       setTimeout(() => {
         boxTwo.rotation.y += 90;
@@ -176,9 +197,11 @@ $(document).ready(() => {
         sectionP1.css('background-color', '#f5f5f5');
         sectionP2.css('background-color', '#ebecec');
       }, 4000);
+
       // current score zero
       setTimeout(Zero, 4000);
       number = 0;
+
       // move dice on face 1
       setTimeout(() => {
         boxTwo.rotation.y -= 90;
@@ -186,6 +209,7 @@ $(document).ready(() => {
       setTimeout(() => {
         boxTwo.rotation.y += 90
       }, 6000); 
+
     } else if (player == true) {
       setTimeout(() => {
         playerText2.css('opacity', '0.5');
@@ -195,9 +219,11 @@ $(document).ready(() => {
         sectionP2.css('background-color', '#f5f5f5');
         sectionP1.css('background-color', '#ebecec');
       }, 4000);
+
       // current score zero
       setTimeout(Zero, 4000);
       number = 0;
+
       // move dice on face 1
       setTimeout(() => {
         boxTwo.rotation.y -= 90;
@@ -212,8 +238,8 @@ $(document).ready(() => {
   function Player_2() {
     Player(currentScore2, currentScoreTwo);
     if (number == 1) {
-    setTimeout(Zero, 4000);
-    ChangePlayer(true);
+      setTimeout(Zero, 4000);
+      ChangePlayer(true);
     };
   };
   
@@ -235,22 +261,13 @@ $(document).ready(() => {
         setTimeout(Zero, 4000);
         ChangePlayer(false, currentScore2);
        };
-      if (clickHold) {
-
-      };
-     
     } else if (player == false) {
       Player_2();
-      if (clickHold) {
-
-      };
-      
     };
-    
   };
 
   
-  // to add event on click on rollDice element
+  // to add event on click on rollDice and new game element
   newGame.click(NewGame);
   rollDice.click(MoveDice);
   

@@ -208,4 +208,13 @@ h1 {
   background-color: red;
   vertical-align: middle;
 }
+
+.modal-body {
+  height: 50px;
+}
+
+.modal {
+  top: 50px;
+  left: 100px;
+}
 /*# sourceMappingURL=styles.css.map */
