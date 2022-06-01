@@ -1,3 +1,3 @@
 import './three.mjs' 
-import './rollDiceClickFunction.mjs'
+import './game.mjs'
 import './rules.mjs'
