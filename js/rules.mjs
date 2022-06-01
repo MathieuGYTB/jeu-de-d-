@@ -1,6 +1,8 @@
 $(document).ready(() => {
+  // add variable
   const help = $('.help');
   const rules = $('#rules');
+
   rules.hide();
   
   // function to show img
@@ -13,6 +15,7 @@ $(document).ready(() => {
   rules.hide();
   };
 
+  //event mouse
   help.mouseover(Show);
   help.mouseout(hide);
 });

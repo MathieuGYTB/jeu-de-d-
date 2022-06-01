@@ -58,7 +58,7 @@ $(document).ready(() => {
     number = 0;
   };
 
-  // function to the winner
+  // function to add a modal message to the winner
   function winner(total, totalScore0, players) {
     if (total >= 100) {
       total == 100;
@@ -118,19 +118,18 @@ $(document).ready(() => {
     currentScoreOne = 0;
     currentScoreTwo = 0;
   };
+
   // function to write the add random number other than 1 in current score
   function otherNumber(currentScore, cSO) {
     currentScore.text(number + cSO);
     cSO = number + cSO;
   };
   
-
+  // function to play when the number is between 2 and 6
   function Player(currentScore0, currentScoreZero) {
     if (number === 2) {
-
       //add current score
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
-
       // move dice on face 2
       setTimeout(()=> {
         boxTwo.rotation.y += 179;
@@ -138,25 +137,19 @@ $(document).ready(() => {
       setTimeout(() => {
         boxTwo.rotation.y -= 179
       }, 6000);
-
     } else if (number === 3) {
-
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
       // move dice on face 3
-
       setTimeout(() => {
         boxTwo.rotation.x += 90;
       }, 4000);
       setTimeout(() => {
         boxTwo.rotation.x -= 90
       }, 6000); 
-
     } else if (number === 4) {
-
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
-
       //move dice on face 4
       setTimeout(() => {
         boxTwo.rotation.x -= 90;
@@ -164,20 +157,14 @@ $(document).ready(() => {
       setTimeout(() => {
         boxTwo.rotation.x += 90
       }, 6000);
-
     } else if (number === 5) {
-
       //add temporary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
-
       //move dice on face 5
       boxTwo.rotation.x == 0;
-
     } else if (number === 6) {
-
       //add temprary count
       setTimeout(otherNumber, 4000, currentScore0, currentScoreZero);
-
       //move dice on face 6
       setTimeout(() => {
         boxTwo.rotation.y += 90;
@@ -200,11 +187,9 @@ $(document).ready(() => {
         sectionP1.css('background-color', '#f5f5f5');
         sectionP2.css('background-color', '#ebecec');
       }, 4000);
-
       // current score zero
       setTimeout(Zero, 4000);
       number = 0;
-
       // move dice on face 1
       setTimeout(() => {
         boxTwo.rotation.y -= 90;
@@ -212,7 +197,6 @@ $(document).ready(() => {
       setTimeout(() => {
         boxTwo.rotation.y += 90
       }, 6000); 
-
     } else if (player == true) {
       setTimeout(() => {
         playerText2.css('opacity', '0.5');
@@ -222,11 +206,9 @@ $(document).ready(() => {
         sectionP2.css('background-color', '#f5f5f5');
         sectionP1.css('background-color', '#ebecec');
       }, 4000);
-
       // current score zero
       setTimeout(Zero, 4000);
       number = 0;
-
       // move dice on face 1
       setTimeout(() => {
         boxTwo.rotation.y -= 90;

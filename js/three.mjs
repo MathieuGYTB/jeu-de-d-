@@ -33,10 +33,12 @@ export const box = new THREE.Mesh(boxGeometry, boxMaterial);
 box.position.set(0,0,0);
 scene.add(box);
 
+//seconde box object 
 export const boxTwo = new THREE.Mesh(boxGeometry, boxMaterial);
 boxTwo.position.set(0,0,0);
 scene.add(boxTwo);
 
+//function to render
 export function render() {
 boxTwo.position.set(0,0,0);
 renderer.setClearColor(0xffffff, 0);
@@ -45,7 +47,9 @@ requestAnimationFrame(render);
 };
 
 render();
+
 export var request;
+
 // function to animate Dice
 export function Animate() {
   box.rotation.x += 0.1;
@@ -56,13 +60,16 @@ export function Animate() {
   request = requestAnimationFrame(Animate);
 };
 
+// fucntion to add object in scene
 export function AddObject(obj) {
   scene.add(obj);
 };
 
+//function to delete object
 export function DeleteObject(obj) {
   scene.remove(obj);
 };
+
 // function to stop animation
 export function stopAnimate() {
   cancelAnimationFrame(request);
