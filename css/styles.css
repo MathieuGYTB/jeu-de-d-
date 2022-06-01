@@ -37,6 +37,10 @@ body {
   color: red;
 }
 
+h4:hover {
+  font-size: 30px;
+}
+
 @media screen and (max-width: 520px) {
   h4 {
     font-size: 16px;
@@ -191,6 +195,10 @@ h1 {
   left: 52%;
 }
 
+h1:hover {
+  font-size: 60px;
+}
+
 @media screen and (max-width: 490px) {
   h1 {
     font-size: 16px;
@@ -237,8 +245,32 @@ h1 {
   left: 100px;
 }
 
-.help + .rules {
+.help + #rules {
   position: absolute;
   z-index: 2;
+}
+
+#rules {
+  left: 0px;
+  width: 500px;
+}
+
+.rules {
+  left: 30px;
+  width: 500px;
+  z-index: 2;
+  background-color: white;
+}
+
+@media screen and (max-width: 560px) {
+  .rules {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .rules {
+    width: 200px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

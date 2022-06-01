@@ -1,17 +1,18 @@
 $(document).ready(() => {
   const help = $('.help');
-  const rules = $('.rules');
+  const rules = $('#rules');
   rules.hide();
+  
   // function to show img
   function Show() {
-    rules.show()
+    rules.show();
   };
 
   //function to hide img
-  function Hide() {
-    rules.hide();
+  function hide() {
+  rules.hide();
   };
 
-  help.hover(Show);
-  help.mouseout(Hide);
+  help.mouseover(Show);
+  help.mouseout(hide);
 });
